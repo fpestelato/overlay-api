@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="v-app">
+        <transition name="fade-slow">
+            <div id="rect-eliminated" v-if="teamEliminated.visibility">
+                <div id="rect-eliminated-box">
+                    <div id="rect-eliminated-content">
+                        <div id="rect-eliminated-content-title">TIME ELIMINADO</div>
+                        <div id="rect-eliminated-content-sub">
+                            <div id="rect-eliminated-content-sub-number">#{{teamEliminated.data.position}}</div>
+                            <div id="rect-eliminated-content-sub-logo"><img v-bind:src="teamEliminated.data.teamLogo"></div>
+                            <div id="rect-eliminated-content-sub-name">{{teamEliminated.data.teamName}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#v-app',
+            data: {
+                teamEliminated: {
+                    visibility: false,
+                    queue: [],
+                    data: {
+                        position: 0,
+                        teamLogo: '',
+                        teamName: ''
+                    }
+                },
+            },
+            methods: { },
+            created() {
+                this.socket = io("http://localhost:3000");
+                this.socket.on('eliminatedTeamClient', (request) => {
+                    this.teamEliminated.data = request;
+                    this.teamEliminated.visibility = !this.teamEliminated.visibility;
+                    
+                    setTimeout(()=>{
+                        this.teamEliminated.visibility = !this.teamEliminated.visibility;
+                    }, 3000);
+                });
+            },
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>
