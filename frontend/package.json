@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.0.1",
   "description": "frontend",
-  "productName": "frontend",
+  "productName": "Overlay API",
   "author": "fpestelato <fpestelato@gmail.com>",
   "private": true,
   "scripts": {
