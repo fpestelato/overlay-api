@@ -25,14 +25,14 @@
     >
 
       <q-list>
-        <q-item clickable v-ripple to="/">
+        <q-item clickable exact v-ripple to="/">
           <q-item-section avatar>
             <q-icon color="primary" name="add_to_queue" />
           </q-item-section>
           <q-item-section>Controle de Overlays</q-item-section>
         </q-item>
     
-        <q-item clickable v-ripple to="/statics">
+        <q-item clickable exact v-ripple to="/statics">
           <q-item-section avatar>
             <q-icon color="primary" name="equalizer" />
           </q-item-section>
