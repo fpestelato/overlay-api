@@ -1,84 +1,124 @@
 {
-    "teams": [
-        {
-            "id": 1,
-            "teamName": "LOOPS",
-            "logoPicUrl": "assets/teams/loops.png"
-        },
-        {
-            "id": 2,
-            "teamName": "BRK",
-            "logoPicUrl": "assets/teams/brk.png"
-        },
-        {
-            "id": 3,
-            "teamName": "TRM",
-            "logoPicUrl": "assets/teams/trem-careta.png"
-        },
-        {
-            "id": 4,
-            "teamName": "SIX9",
-            "logoPicUrl": "assets/teams/six-9.png"
-        },
-        {
-            "id": 5,
-            "teamName": "RUSH TO DIE",
-            "logoPicUrl": "assets/teams/rushtodie.png"
-        },
-        {
-            "id": 6,
-            "teamName": "ENXAME",
-            "logoPicUrl": "assets/teams/exg.png"
-        },
-        {
-            "id": 7,
-            "teamName": "SKYLINE",
-            "logoPicUrl": "assets/teams/skyline.png"
-        },
-        {
-            "id": 8,
-            "teamName": "ACE1",
-            "logoPicUrl": "assets/teams/ace1.png"
-        },
-        {
-            "id": 9,
-            "teamName": "9k",
-            "logoPicUrl": "assets/teams/9k.png"
-        },
-        {
-            "id":10,
-            "teamName": "EVO",
-            "logoPicUrl": "assets/teams/evo.png"
-        },
-        {
-            "id": 11,
-            "teamName": "SOLID",
-            "logoPicUrl": "assets/teams/team-solid.png"
-        },
-        {
-            "id": 12,
-            "teamName": "STARDUST",
-            "logoPicUrl": "assets/teams/stardust.png"
-        },
-        {
-            "id": 13,
-            "teamName": "REAL",
-            "logoPicUrl": "assets/teams/real.png"
-        },
-        {
-            "id": 14,
-            "teamName": "INTZ",
-            "logoPicUrl": "assets/teams/intz.png"
-        },
-        {
-            "id": 15,
-            "teamName": "CR4ZY",
-            "logoPicUrl": "assets/teams/cr4zy.png"
-        },
-        {
-            "id": 16,
-            "teamName": "SANTOS",
-            "logoPicUrl": "assets/teams/santos.png"
-        }
-    ]
+  "teams": [
+    {
+      "id": 1,
+      "teamName": "LOOPS",
+      "logoPicUrl": "assets/teams/loops.png"
+    },
+    {
+      "id": 2,
+      "teamName": "BRK",
+      "logoPicUrl": "assets/teams/brk.png"
+    },
+    {
+      "id": 3,
+      "teamName": "TRM",
+      "logoPicUrl": "assets/teams/trem-careta.png"
+    },
+    {
+      "id": 4,
+      "teamName": "SIX9",
+      "logoPicUrl": "assets/teams/six-9.png"
+    },
+    {
+      "id": 5,
+      "teamName": "RUSH TO DIE",
+      "logoPicUrl": "assets/teams/rushtodie.png"
+    },
+    {
+      "id": 6,
+      "teamName": "ENXAME",
+      "logoPicUrl": "assets/teams/exg.png"
+    },
+    {
+      "id": 7,
+      "teamName": "SKYLINE",
+      "logoPicUrl": "assets/teams/skyline.png"
+    },
+    {
+      "id": 8,
+      "teamName": "ACE1",
+      "logoPicUrl": "assets/teams/ace1.png"
+    },
+    {
+      "id": 9,
+      "teamName": "9k",
+      "logoPicUrl": "assets/teams/9k.png"
+    },
+    {
+      "id": 10,
+      "teamName": "EVO",
+      "logoPicUrl": "assets/teams/evo.png"
+    },
+    {
+      "id": 11,
+      "teamName": "SOLID",
+      "logoPicUrl": "assets/teams/team-solid.png"
+    },
+    {
+      "id": 12,
+      "teamName": "STARDUST",
+      "logoPicUrl": "assets/teams/stardust.png"
+    },
+    {
+      "id": 13,
+      "teamName": "REAL",
+      "logoPicUrl": "assets/teams/real.png"
+    },
+    {
+      "id": 14,
+      "teamName": "INTZ",
+      "logoPicUrl": "assets/teams/intz.png"
+    },
+    {
+      "id": 15,
+      "teamName": "CR4ZY",
+      "logoPicUrl": "assets/teams/cr4zy.png"
+    },
+    {
+      "id": 16,
+      "teamName": "SANTOS16",
+      "logoPicUrl": "assets/teams/santos.png"
+    },
+    {
+      "id": 17,
+      "teamName": "SANTOS17",
+      "logoPicUrl": "assets/teams/santos.png"
+    },
+    {
+      "id": 18,
+      "teamName": "SANTOS18",
+      "logoPicUrl": "assets/teams/santos.png"
+    },
+    {
+      "id": 19,
+      "teamName": "SANTOS19",
+      "logoPicUrl": "assets/teams/santos.png"
+    },
+    {
+      "id": 20,
+      "teamName": "SANTOS20",
+      "logoPicUrl": "assets/teams/santos.png"
+    },
+    {
+      "id": 21,
+      "teamName": "SANTOS21",
+      "logoPicUrl": "assets/teams/santos.png"
+    },
+    {
+      "id": 23,
+      "teamName": "SANTOS23",
+      "logoPicUrl": "assets/teams/santos.png"
+    },
+    {
+      "id": 24,
+      "teamName": "SANTOS24",
+      "logoPicUrl": "assets/teams/santos.png"
+    },
+    {
+      "id": 25,
+      "teamName": "SANTOS25",
+      "logoPicUrl": "assets/teams/santos.png"
+    }
+  ]
 }

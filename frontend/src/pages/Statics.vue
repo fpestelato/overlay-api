@@ -2,10 +2,12 @@
   <q-page class="q-pa-lg">
     <q-table
       title="Estatísticas"
+      class="my-sticky-header-table"
       :data="allPlayers"
       :columns="columns"
       :loading="loading"
       row-key="uId"
+      style="height: 1060px"
       virtual-scroll
       :pagination.sync="pagination"
       :rows-per-page-options="[0]"
@@ -50,6 +52,8 @@ export default {
     return {
       pagination: {
         rowsPerPage: 0,
+        sortBy: 'kills',
+        descending: true,
       },
       allPlayers: [],
       allTeams: [],
@@ -87,6 +91,14 @@ export default {
           sortable: true,
         },
         {
+          name: 'headShotNum',
+          required: true,
+          label: 'Headshots',
+          align: 'center',
+          field: row => row.killNumByGrenade,
+          sortable: true,
+        },
+        {
           name: 'assists',
           required: true,
           label: 'Assists',
@@ -119,11 +131,11 @@ export default {
           sortable: true,
         },
         {
-          name: 'revives',
+          name: 'rescueTimes',
           required: true,
-          label: 'Revives',
+          label: 'Rescue Times',
           align: 'center',
-          field: row => row.revives,
+          field: row => row.rescueTimes,
           sortable: true,
         },
         {
@@ -135,27 +147,73 @@ export default {
           sortable: true,
         },
         {
-          name: 'surviceTime',
+          name: 'survivalTime',
           required: true,
-          label: 'Survice Time',
+          label: 'Survival Time',
           align: 'center',
-          field: row => row.surviceTime,
+          field: row => row.survivalTime,
+          sortable: true,
+        },
+        {
+          name: 'maxKillDistance',
+          required: true,
+          label: 'Max Kill Distance',
+          align: 'center',
+          field: row => row.maxKillDistance,
+          sortable: true,
+        },
+        {
+          name: 'inDamage',
+          required: true,
+          label: 'In Damage',
+          align: 'center',
+          field: row => row.inDamage,
+          sortable: true,
+        },
+        {
+          name: 'marchDistance',
+          required: true,
+          label: 'March Distance',
+          align: 'center',
+          field: row => row.marchDistance,
+          sortable: true,
+        },
+        {
+          name: 'killNumInVehicle',
+          required: true,
+          label: 'Kills in Vehicle',
+          align: 'center',
+          field: row => row.killNumInVehicle,
+          sortable: true,
+        },
+        {
+          name: 'killNumByGrenade',
+          required: true,
+          label: 'Kills By Grenade',
+          align: 'center',
+          field: row => row.killNumByGrenade,
+          sortable: true,
+        },
+        {
+          name: 'useFragGrenadeNum',
+          required: true,
+          label: 'Frag Grenades Used',
+          align: 'center',
+          field: row => row.useFragGrenadeNum,
+          sortable: true,
+        },
+        {
+          name: 'useSmokeGrenadeNum',
+          required: true,
+          label: 'Smoke Grenades Used',
+          align: 'center',
+          field: row => row.useSmokeGrenadeNum,
           sortable: true,
         },
       ],
     };
   },
-  created() {
-    this.socket = io('http://localhost:3000');
-    this.loading = true;
-    this.socket.on('update', payload => {
-      this.allPlayers = payload.players;
-      this.allTeams = payload.teams;
-      this.loading = false;
-    });
-  },
   methods: {
-    log: console.log,
     exportTable() {
       const content = [this.columns.map(col => wrapCsvValue(col.label))]
         .concat(
@@ -185,11 +243,40 @@ export default {
       }
     },
   },
+  created() {
+    this.socket = io('http://localhost:3000');
+    this.loading = true;
+    this.socket.on('update', payload => {
+      this.allPlayers = payload.players;
+      this.allTeams = payload.teams;
+      this.loading = false;
+    });
+  },
+  destroyed() {
+    this.socket.close();
+  },
 };
 </script>
 
-<style lang="scss">
-.stats {
-  min-height: 100%;
-}
+<style lang="sass">
+.my-sticky-header-table
+  /* height or max-height is important */
+  height: 310px
+
+  .q-table__top,
+  .q-table__bottom,
+  thead tr:first-child th
+    /* bg color is important for th; just specify one */
+    background-color: #FFFFFF
+
+  thead tr th
+    position: sticky
+    z-index: 1
+  thead tr:first-child th
+    top: 0
+
+  /* this is when the loading indicator appears */
+  &.q-table--loading thead tr:last-child th
+    /* height of all previous header rows */
+    top: 48px
 </style>
