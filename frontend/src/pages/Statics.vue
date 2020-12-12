@@ -1,17 +1,6 @@
 <template>
   <q-page class="q-pa-lg">
-    <q-table
-      title="Estatísticas"
-      class="my-sticky-header-table"
-      :data="allPlayers"
-      :columns="columns"
-      :loading="loading"
-      row-key="uId"
-      style="height: 1060px"
-      virtual-scroll
-      :pagination.sync="pagination"
-      :rows-per-page-options="[0]"
-    >
+    <q-table title="Estatísticas" class="my-sticky-header-table" :data="allPlayers" :columns="columns" :loading="loading" row-key="uId" style="height: 1060px" virtual-scroll :pagination.sync="pagination" :rows-per-page-options="[0]">
       <template v-slot:body-cell-teamLogo="props">
         <q-td :props="props">
           <q-img :src="`${props.row.teamLogo}`" :ratio="1" />
@@ -19,13 +8,7 @@
       </template>
 
       <template v-slot:top-right>
-        <q-btn
-          color="positive"
-          icon-right="archive"
-          label="Exportar"
-          no-caps
-          @click="exportTable"
-        />
+        <q-btn color="positive" icon-right="archive" label="Exportar" no-caps @click="exportTable" />
       </template>
     </q-table>
   </q-page>
@@ -35,7 +18,7 @@
 import io from 'socket.io-client';
 import { exportFile } from 'quasar';
 
-function wrapCsvValue(val, formatFn) {
+function wrapCsvValue (val, formatFn) {
   let formatted = formatFn !== void 0 ? formatFn(val) : val;
 
   formatted =
@@ -48,7 +31,7 @@ function wrapCsvValue(val, formatFn) {
 
 export default {
   name: 'Statics',
-  data() {
+  data () {
     return {
       pagination: {
         rowsPerPage: 0,
@@ -80,6 +63,14 @@ export default {
           label: 'Player',
           align: 'center',
           field: row => row.playerName,
+          sortable: true,
+        },
+        {
+          name: 'uId',
+          required: true,
+          label: 'Player ID',
+          align: 'center',
+          field: row => row.uId,
           sortable: true,
         },
         {
@@ -214,7 +205,7 @@ export default {
     };
   },
   methods: {
-    exportTable() {
+    exportTable () {
       const content = [this.columns.map(col => wrapCsvValue(col.label))]
         .concat(
           this.allPlayers.map(row =>
@@ -243,7 +234,7 @@ export default {
       }
     },
   },
-  created() {
+  created () {
     this.socket = io('http://localhost:3000');
     this.loading = true;
     this.socket.on('update', payload => {
@@ -252,7 +243,7 @@ export default {
       this.loading = false;
     });
   },
-  destroyed() {
+  destroyed () {
     this.socket.close();
   },
 };
